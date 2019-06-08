@@ -5,6 +5,8 @@ import io.zipcoder.polymorphism.Pets.Dog;
 import io.zipcoder.polymorphism.Pets.Goldfish;
 import io.zipcoder.polymorphism.Pets.Pet;
 
+import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -13,10 +15,13 @@ import java.util.Scanner;
  * Created by leon on 11/6/17.
  */
 public class MainApplication {
+
     public static void main(String[] args) {
 
-        ArrayList<Pet> petList = new ArrayList<>();
+        ArrayList<Pet> userPetList = new ArrayList<>();
         Integer numberOfPets = null;
+        PetOwner user = new PetOwner("User", userPetList);
+
 
         while (numberOfPets == null) {
             System.out.println("How many pets do you have?");
@@ -52,15 +57,15 @@ public class MainApplication {
             switch (petType.toLowerCase()) {
                 case "dog":
                     Dog dog = new Dog(petName, petType);
-                    petList.add(dog);
+                    user.addPet(dog);
                     break;
                 case "cat":
                     Cat cat = new Cat(petName, petType);
-                    petList.add(cat);
+                    user.addPet(cat);
                     break;
                 case "goldfish":
                     Goldfish goldfish = new Goldfish(petName, petType);
-                    petList.add(goldfish);
+                    user.addPet(goldfish);
                     break;
                 default:
                     System.out.println("Hmmm... I'm not familiar with that animal... Try again, please!\n");
@@ -68,14 +73,6 @@ public class MainApplication {
                     break;
             }
         }
-
-        Integer i = 1;
-        for (Pet pet : petList) {
-            System.out.println("Pet #" + i + ":");
-            System.out.println("\tSpecies:   " + pet.getAnimal());
-            System.out.println("\tName:      " + pet.getName());
-            System.out.println("\t" + pet.getName() + " says, '" + pet.speak() + "'");
-            i++;
-        }
+        user.printPetList();
     }
 }
