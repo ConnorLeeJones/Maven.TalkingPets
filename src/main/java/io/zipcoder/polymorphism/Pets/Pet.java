@@ -37,7 +37,7 @@ public abstract class Pet implements Comparable<Pet> {
     }
 
 
-    public class nameCompare implements Comparator<Pet>{
+    public class nameSorter implements Comparator<Pet>{
 
         @Override
         public int compare(Pet o1, Pet o2) {
@@ -52,7 +52,7 @@ public abstract class Pet implements Comparable<Pet> {
         }
     }
 
-    public class typeCompare implements Comparator<Pet>{
+    public class typeSorter implements Comparator<Pet>{
 
         @Override
         public int compare(Pet o1, Pet o2) {
