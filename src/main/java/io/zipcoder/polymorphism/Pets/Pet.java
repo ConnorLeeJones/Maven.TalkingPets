@@ -1,7 +1,6 @@
 package io.zipcoder.polymorphism.Pets;
-import java.util.Comparator;
 
-public abstract class Pet implements Comparable<Pet> {
+public class Pet implements Comparable<Pet> {
     String name;
     String animal;
 
@@ -36,41 +35,15 @@ public abstract class Pet implements Comparable<Pet> {
         return "I am pet :)";
     }
 
-
-    public class nameSorter implements Comparator<Pet>{
-
-        @Override
-        public int compare(Pet o1, Pet o2) {
-            int nameCompare = o2.name.compareTo(o1.name);
-            int typeCompare = o2.animal.compareTo(o1.animal);
-
-            if (nameCompare == 0) {
-                return typeCompare;
-            } else {
-                return nameCompare;
-            }
+    @Override
+    public int compareTo(Pet o) {
+        int nameCompare = (this.getName()).compareTo(o.getName());
+        if (nameCompare != 0){
+            return nameCompare;
         }
+        return (this.getAnimal()).compareTo(o.getAnimal());
     }
 
-    public class typeSorter implements Comparator<Pet>{
-
-        @Override
-        public int compare(Pet o1, Pet o2) {
-            int nameCompare = o2.name.compareTo(o1.name);
-            int typeCompare = o2.animal.compareTo(o1.animal);
-
-            if (typeCompare == 0) {
-                return nameCompare;
-            } else {
-                return typeCompare;
-            }
-        }
-    }
 }
 
 
-
-/*
-Comparator.comparing(Pet::getType).thenComparing(Pet::getName)
-
- */

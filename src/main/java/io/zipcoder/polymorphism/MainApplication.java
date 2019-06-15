@@ -1,11 +1,9 @@
 package io.zipcoder.polymorphism;
 
-import io.zipcoder.polymorphism.Pets.Cat;
-import io.zipcoder.polymorphism.Pets.Dog;
-import io.zipcoder.polymorphism.Pets.Goldfish;
-import io.zipcoder.polymorphism.Pets.Pet;
+import io.zipcoder.polymorphism.Pets.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.InputMismatchException;
 
 /**
