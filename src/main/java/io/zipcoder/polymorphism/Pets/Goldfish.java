@@ -9,11 +9,13 @@ public class Goldfish extends Pet {
 
     public Goldfish(String name, String animal) {
         super(name, animal);
+
     }
 
     @Override
     public String speak() {
         return "blub blub.";
     }
+
 
 }
